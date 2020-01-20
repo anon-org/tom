@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="build" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="tom" />
+    <working_directory value="$PROJECT_DIR$/" />
+    <kind value="PACKAGE" />
+    <filePath value="$PROJECT_DIR$/tom.go" />
+    <package value="github.com/anon-org/tom" />
+    <directory value="$PROJECT_DIR$/" />
+    <method v="2">
+      <option name="GoBeforeRunTask" command="fmt" />
+    </method>
+  </configuration>
+</component>
