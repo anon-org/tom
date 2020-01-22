@@ -16,20 +16,20 @@ func TestHasEmptySlice(t *testing.T) {
 
 func TestHasNotEmptySlice(t *testing.T) {
 	haystack := []int{
-		0,1,2,3,
+		0, 1, 2, 3,
 	}
 
 	testCase := []struct {
 		needle int
-		want bool
-	} {
+		want   bool
+	}{
 		{
 			needle: 2,
-			want: true,
+			want:   true,
 		},
 		{
 			needle: 4,
-			want: false,
+			want:   false,
 		},
 	}
 

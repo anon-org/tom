@@ -4,29 +4,29 @@ import "testing"
 
 func TestJoinTypeEnum(t *testing.T) {
 	testCase := []struct {
-		val JoinType
+		val       JoinType
 		valString string
-		want string
-	} {
+		want      string
+	}{
 		{
-			val: InnerJoin,
+			val:       InnerJoin,
 			valString: "InnerJoin",
-			want: " JOIN ",
+			want:      " JOIN ",
 		},
 		{
-			val: LeftJoin,
+			val:       LeftJoin,
 			valString: "LeftJoin",
-			want: " LEFT JOIN ",
+			want:      " LEFT JOIN ",
 		},
 		{
-			val: RightJoin,
+			val:       RightJoin,
 			valString: "RightJoin",
-			want: " RIGHT JOIN ",
+			want:      " RIGHT JOIN ",
 		},
 		{
-			val: UndefinedJoin,
+			val:       UndefinedJoin,
 			valString: "UndefinedJoin",
-			want: "UNDEFINED",
+			want:      "UNDEFINED",
 		},
 	}
 

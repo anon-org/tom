@@ -7,19 +7,19 @@ import (
 )
 
 type joinQuery struct {
-	rightTable string
-	alias string
-	leftField string
+	rightTable  string
+	alias       string
+	leftField   string
 	compareType CompareType
-	rightField string
-	JoinType JoinType
+	rightField  string
+	JoinType    JoinType
 }
 
 type joinQueries []joinQuery
 
 type SelectQuery struct {
-	fields []string
-	table  string
+	fields     []string
+	table      string
 	joinStacks joinQueries
 }
 
@@ -96,7 +96,7 @@ func (sq *SelectQuery) From(table string) *SelectQuery {
 func (sq *SelectQuery) join(rightTable, alias string, joinType JoinType) *SelectQuery {
 	joinQuery := joinQuery{
 		rightTable: rightTable,
-		alias: alias,
+		alias:      alias,
 		leftField:  "",
 		rightField: "",
 		JoinType:   joinType,
@@ -129,7 +129,7 @@ func (sq *SelectQuery) On(leftField string, compareType CompareType, rightField 
 		return sq
 	}
 
-	topStack := sq.joinStacks[joinStackLength - 1]
+	topStack := sq.joinStacks[joinStackLength-1]
 
 	topStack.leftField = leftField
 	topStack.compareType = compareType
@@ -153,7 +153,7 @@ func (sq *SelectQuery) Build() (string, error) {
 	return b.String(), nil
 }
 
-func (sq *SelectQuery) getFieldQuery () string {
+func (sq *SelectQuery) getFieldQuery() string {
 	if len(sq.fields) == 0 || helper.Has(sq.fields, "*") {
 		sq.fields = []string{"*"}
 	}
@@ -161,7 +161,7 @@ func (sq *SelectQuery) getFieldQuery () string {
 	return "SELECT " + strings.Join(sq.fields, ", ")
 }
 
-func (sq *SelectQuery) getJoinQuery () string {
+func (sq *SelectQuery) getJoinQuery() string {
 	var b strings.Builder
 
 	if len(sq.joinStacks) == 0 {

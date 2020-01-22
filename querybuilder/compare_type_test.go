@@ -4,74 +4,74 @@ import "testing"
 
 func TestCompareTypeEnum(t *testing.T) {
 	testCase := []struct {
-		val CompareType
+		val       CompareType
 		valString string
-		want string
-	} {
+		want      string
+	}{
 		{
-			val: Equal,
+			val:       Equal,
 			valString: "Equal",
-			want: " = ",
+			want:      " = ",
 		},
 		{
-			val: NotEqual,
+			val:       NotEqual,
 			valString: "NotEqual",
-			want: " <> ",
+			want:      " <> ",
 		},
 		{
-			val: GreaterThan,
+			val:       GreaterThan,
 			valString: "GreaterThan",
-			want: " > ",
+			want:      " > ",
 		},
 		{
-			val: GreaterThanEqual,
+			val:       GreaterThanEqual,
 			valString: "GreaterThanEqual",
-			want: " >= ",
+			want:      " >= ",
 		},
 		{
-			val: LessThan,
+			val:       LessThan,
 			valString: "LessThan",
-			want: " < ",
+			want:      " < ",
 		},
 		{
-			val: LessThanEqual,
+			val:       LessThanEqual,
 			valString: "LessThanEqual",
-			want: " <= ",
+			want:      " <= ",
 		},
 		{
-			val: Is,
+			val:       Is,
 			valString: "Is",
-			want: " IS ",
+			want:      " IS ",
 		},
 		{
-			val: IsNot,
+			val:       IsNot,
 			valString: "IsNot",
-			want: " IS NOT ",
+			want:      " IS NOT ",
 		},
 		{
-			val: Like,
+			val:       Like,
 			valString: "Like",
-			want: " LIKE ",
+			want:      " LIKE ",
 		},
 		{
-			val: NotLike,
+			val:       NotLike,
 			valString: "NotLike",
-			want: " NOT LIKE ",
+			want:      " NOT LIKE ",
 		},
 		{
-			val: In,
+			val:       In,
 			valString: "In",
-			want: " IN ",
+			want:      " IN ",
 		},
 		{
-			val: NotIn,
+			val:       NotIn,
 			valString: "NotIn",
-			want: " NOT IN ",
+			want:      " NOT IN ",
 		},
 		{
-			val: UndefinedCompare,
+			val:       UndefinedCompare,
 			valString: "UndefinedCompare",
-			want: "UNDEFINED",
+			want:      "UNDEFINED",
 		},
 	}
 

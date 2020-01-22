@@ -4,7 +4,7 @@ import (
 	"reflect"
 )
 
-func Has (haystack interface{}, needle interface{}) bool {
+func Has(haystack interface{}, needle interface{}) bool {
 	arr := reflect.ValueOf(haystack)
 	length := arr.Len()
 
@@ -13,7 +13,7 @@ func Has (haystack interface{}, needle interface{}) bool {
 	}
 
 	if arr.Kind() == reflect.Slice {
-		for i, j := 0, length-1 ; i <= j ; i, j = i+1, j-1 {
+		for i, j := 0, length-1; i <= j; i, j = i+1, j-1 {
 			hay1 := arr.Index(i).Interface()
 			hay2 := arr.Index(j).Interface()
 

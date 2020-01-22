@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestSelectMissingTableName (t *testing.T) {
+func TestSelectMissingTableName(t *testing.T) {
 	funcString := "Select().Build()"
 	gotQuery, gotErr := Select().Build()
 	wantQuery := ""
@@ -19,7 +19,7 @@ func TestSelectMissingTableName (t *testing.T) {
 	}
 }
 
-func TestSelectSingleValue (t *testing.T) {
+func TestSelectSingleValue(t *testing.T) {
 	funcString := "Select(\"field_name\").From(\"table_name\").Build()"
 	gotQuery, gotErr := Select("field_name").From("table_name").Build()
 	wantQuery := "SELECT field_name FROM table_name"
@@ -34,7 +34,7 @@ func TestSelectSingleValue (t *testing.T) {
 	}
 }
 
-func TestSelectWithoutValue (t *testing.T) {
+func TestSelectWithoutValue(t *testing.T) {
 	funcString := "Select().From(\"table_name\").Build()"
 	gotQuery, gotErr := Select().From("table_name").Build()
 	wantQuery := "SELECT * FROM table_name"
@@ -49,7 +49,7 @@ func TestSelectWithoutValue (t *testing.T) {
 	}
 }
 
-func TestSelectMultiWithoutValue (t *testing.T) {
+func TestSelectMultiWithoutValue(t *testing.T) {
 	funcString := "Select(\"field1\", \"field2\").From(\"table_name\").Build()"
 	gotQuery, gotErr := Select("field1", "field2").From("table_name").Build()
 	wantQuery := "SELECT field1, field2 FROM table_name"
@@ -64,7 +64,7 @@ func TestSelectMultiWithoutValue (t *testing.T) {
 	}
 }
 
-func TestSelectAll (t *testing.T) {
+func TestSelectAll(t *testing.T) {
 	funcString := "SelectAll().From(\"table_name\").Build()"
 	gotQuery, gotErr := Select().From("table_name").Build()
 	wantQuery := "SELECT * FROM table_name"
@@ -79,7 +79,7 @@ func TestSelectAll (t *testing.T) {
 	}
 }
 
-func TestSelectEmptyValueWithFieldEmptyValue (t *testing.T) {
+func TestSelectEmptyValueWithFieldEmptyValue(t *testing.T) {
 	funcString := "Select().Field().From(\"table_name\").Build()"
 	gotQuery, gotErr := Select().Field().From("table_name").Build()
 	wantQuery := "SELECT * FROM table_name"
@@ -94,7 +94,7 @@ func TestSelectEmptyValueWithFieldEmptyValue (t *testing.T) {
 	}
 }
 
-func TestSelectSingleValueWithFieldEmptyValue (t *testing.T) {
+func TestSelectSingleValueWithFieldEmptyValue(t *testing.T) {
 	funcString := "Select(\"field1\").Field().From(\"table_name\").Build()"
 	gotQuery, gotErr := Select("field1").Field().From("table_name").Build()
 	wantQuery := "SELECT field1 FROM table_name"
@@ -109,7 +109,7 @@ func TestSelectSingleValueWithFieldEmptyValue (t *testing.T) {
 	}
 }
 
-func TestSelectSingleValueWithFieldSingleValue (t *testing.T) {
+func TestSelectSingleValueWithFieldSingleValue(t *testing.T) {
 	funcString := "Select(\"field1\").Field(\"field2\").From(\"table_name\").Build()"
 	gotQuery, gotErr := Select("field1").Field("field2").From("table_name").Build()
 	wantQuery := "SELECT field1, field2 FROM table_name"
@@ -124,7 +124,7 @@ func TestSelectSingleValueWithFieldSingleValue (t *testing.T) {
 	}
 }
 
-func TestSelectEmptyValueWithFieldSingleValue (t *testing.T) {
+func TestSelectEmptyValueWithFieldSingleValue(t *testing.T) {
 	funcString := "Select().Field(\"field1\").From(\"table_name\").Build()"
 	gotQuery, gotErr := Select().Field("field1").From("table_name").Build()
 	wantQuery := "SELECT field1 FROM table_name"
@@ -139,7 +139,7 @@ func TestSelectEmptyValueWithFieldSingleValue (t *testing.T) {
 	}
 }
 
-func TestSelectMultiValueWithFieldEmptyValue (t *testing.T) {
+func TestSelectMultiValueWithFieldEmptyValue(t *testing.T) {
 	funcString := "Select(\"field1\", \"field2\").Field().From(\"table_name\").Build()"
 	gotQuery, gotErr := Select("field1", "field2").Field().From("table_name").Build()
 	wantQuery := "SELECT field1, field2 FROM table_name"
@@ -154,7 +154,7 @@ func TestSelectMultiValueWithFieldEmptyValue (t *testing.T) {
 	}
 }
 
-func TestSelectMultiValueWithFieldMultiValue (t *testing.T) {
+func TestSelectMultiValueWithFieldMultiValue(t *testing.T) {
 	funcString := "Select(\"field1\", \"field2\").Field(\"field3\", \"field4\").From(\"table_name\").Build()"
 	gotQuery, gotErr := Select("field1", "field2").Field("field3", "field4").From("table_name").Build()
 	wantQuery := "SELECT field1, field2, field3, field4 FROM table_name"
@@ -169,7 +169,7 @@ func TestSelectMultiValueWithFieldMultiValue (t *testing.T) {
 	}
 }
 
-func TestSelectAllWithAnotherField (t *testing.T) {
+func TestSelectAllWithAnotherField(t *testing.T) {
 	funcString := "SelectAll().Field(\"field1\", \"field2\").From(\"table_name\").Build()"
 	gotQuery, gotErr := SelectAll().Field("field1", "field2").From("table_name").Build()
 	wantQuery := "SELECT * FROM table_name"
