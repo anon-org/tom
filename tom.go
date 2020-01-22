@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	str := tom.SelectAll().Field("field1").From("table_1").Build()
+	str, _ := tom.SelectAll().Field("field1").From("table_1").Build()
 
 	fmt.Println(str)
 
