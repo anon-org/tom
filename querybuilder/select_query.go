@@ -114,8 +114,16 @@ func (sq *SelectQuery) JoinAs(rightTable, alias string) *SelectQuery {
 	return sq.join(rightTable, alias, InnerJoin)
 }
 
+func (sq *SelectQuery) LeftJoin(rightTable string) *SelectQuery {
+	return sq.join(rightTable, "", LeftJoin)
+}
+
 func (sq *SelectQuery) LeftJoinAs(rightTable, alias string) *SelectQuery {
 	return sq.join(rightTable, alias, LeftJoin)
+}
+
+func (sq *SelectQuery) RightJoin(rightTable string) *SelectQuery {
+	return sq.join(rightTable, "", RightJoin)
 }
 
 func (sq *SelectQuery) RightJoinAs(rightTable, alias string) *SelectQuery {
@@ -171,6 +179,12 @@ func (sq *SelectQuery) getJoinQuery() string {
 	for _, joinQuery := range sq.joinStacks {
 		b.WriteString(joinQuery.JoinType.String())
 		b.WriteString(joinQuery.rightTable)
+
+		if joinQuery.alias != "" {
+			b.WriteString(" AS ")
+			b.WriteString(joinQuery.alias)
+		}
+
 		b.WriteString(" ON ")
 		b.WriteString(joinQuery.leftField)
 		b.WriteString(joinQuery.compareType.String())
